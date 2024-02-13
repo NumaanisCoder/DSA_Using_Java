@@ -70,6 +70,65 @@ public class Link_List {
         }
     }
 
+    //Delete At Last
+    public void deleteLast(){
+        if(Head == null){
+            System.out.println("List is Empty");
+            return;
+        }else if(Head.next == null){
+            Head = null;
+            return;
+        }
+        size--;
+        Node secondLast = Head;
+        Node Last = Head.next;
+
+        while (Last.next != null) {
+            secondLast = secondLast.next;
+            Last = Last.next;
+        }
+        secondLast.next =  null;
+
+    }
+    //Delete At First
+    public void deleteFirst(){
+        if(Head == null){
+            System.out.println("List is Empty");
+            return;
+        }else if(Head.next == null){
+            Head = null;
+            return;
+        }
+        Head = Head.next; 
+        
+    }
+
+    //Delete At Index
+    public void deleteAtIndex(int index){
+        if(Head == null){
+            System.out.println("List is Empty");
+            return;
+        } else if(Head.next == null || index == 0){
+            Head = null;
+            return;
+        }
+    
+        Node currNode = Head;
+        int i = 0;
+    
+        while (i < index - 1 && currNode.next != null) {
+            currNode = currNode.next;
+            i++;
+        }
+        if (currNode.next == null) {
+            System.out.println("Index out of bounds");
+            return;
+        }
+        currNode.next = currNode.next.next;
+    }
+  
+    
+
     public void printList() {
         Node currNode = Head;
         while (currNode != null) {
@@ -91,11 +150,12 @@ public class Link_List {
             list1.addNodeLast(20);
             list1.addNodeLast(30);
             list1.addNodeLast(40);
-            // list1.addNodeFirst(5);
-
-            list1.addNodeAtIndex(15, 10);
 
             list1.printList();
+            System.out.println("After Deleting..");
+            list1.deleteAtIndex(2);
+            list1.printList();
+    
     
 
     }
