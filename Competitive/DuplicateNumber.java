@@ -1,6 +1,6 @@
 import java.util.HashSet;
 
-class Solution {
+public class DuplicateNumber {
     public static int findDuplicate(int[] nums) {
         HashSet<Integer> unique = new HashSet<>();
         //  HashSet<Integer> duplicate = new HashSet<>();
@@ -13,7 +13,7 @@ class Solution {
         return -1;
     }
     public static void main(String[] args) {
-        int[] array = {4,3,2,5,4,1};
+        int[] array = {4,3,2,5,4,2,1};
         System.out.println(findDuplicate(array));
     }
 }

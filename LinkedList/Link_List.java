@@ -1,3 +1,4 @@
+
 public class Link_List {
 
     private Node Head;
@@ -40,6 +41,12 @@ public class Link_List {
     public void addNodeAtIndex(int data, int index) {
         if (index < 0) {
             throw new IllegalArgumentException("Index cannot be negative");
+        }
+        else if( index == 0){
+            Node newNode = new Node(data);
+            newNode.next = Head;
+            Head = newNode;
+            return;
         }
         
         Node currNode = Head; // Assuming head is accessible
@@ -151,9 +158,9 @@ public class Link_List {
             list1.addNodeLast(30);
             list1.addNodeLast(40);
 
-            list1.printList();
-            System.out.println("After Deleting..");
-            list1.deleteAtIndex(2);
+            // list1.printList();
+            // System.out.println("After Deleting..");
+            list1.addNodeAtIndex(5,0);
             list1.printList();
     
     
