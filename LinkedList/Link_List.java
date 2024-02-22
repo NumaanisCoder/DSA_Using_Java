@@ -139,10 +139,40 @@ public class Link_List {
     public void printList() {
         Node currNode = Head;
         while (currNode != null) {
-            System.out.print(currNode.data + " ");
+            System.out.print(currNode.data + " -> ");
             currNode = currNode.next;
         }
+        System.out.print("null");
         System.out.println(); // Print a newline after printing all elements
+    }
+
+    public void reverseIterate(){
+        Node prevNode = Head;
+        Node currNode = Head.next;
+
+        while(currNode != null){
+            Node nextNode = currNode.next;
+            currNode.next = prevNode;
+
+            prevNode = currNode;
+            currNode = nextNode;
+        }
+
+        Head.next =null;
+        Head = prevNode;
+
+    }
+
+    public Node reverseRecursion(Node head){
+        if(head.next == null || head == null){
+            return head;
+        }
+        Node newHead = reverseRecursion(head.next);
+
+        head.next.next = head;
+        head.next = null;
+
+        return newHead;
     }
     
 
@@ -158,10 +188,13 @@ public class Link_List {
             list1.addNodeLast(30);
             list1.addNodeLast(40);
 
-            // list1.printList();
             // System.out.println("After Deleting..");
             list1.addNodeAtIndex(5,0);
+            
             list1.printList();
+            list1.Head = list1.reverseRecursion(list1.Head);
+            list1.printList();
+  
     
     
 

@@ -130,9 +130,7 @@ public class LinkList {
         LL.addLast("Ghost");
         LL.printList();
         LL.head = LL.reverseRecursion(LL.head);
-        LL.printList();
-    
-        
+        LL.printList();    
 
     }
 
