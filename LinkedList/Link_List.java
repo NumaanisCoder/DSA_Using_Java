@@ -176,6 +176,11 @@ public class Link_List {
     }
     
 
+    public Boolean isPalindrome(Node head){
+
+            
+
+    }
   
 
 
